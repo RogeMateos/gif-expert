@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 export const AddCategory = ({ onNewCategory } ) => {
+    console.log("onNEWCATEGORY",onNewCategory)
     const [inputValue, setInputValue] = useState('On Punch');
 
     const handleInputChange = (e) => {
@@ -10,7 +11,7 @@ export const AddCategory = ({ onNewCategory } ) => {
     const handleSubmit = (e) => {
         e.preventDefault(); 
         
-       if (inputValue.trim().length  <= 1) return
+       if (inputValue.trim().length  <= 1) return// nothing written in text box , dont do anything
        
        // setCategories(categories => [...categories, inputValue]);ç
        onNewCategory (inputValue.trim());
@@ -18,7 +19,7 @@ export const AddCategory = ({ onNewCategory } ) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} aria-label="form">
             <input 
                 type="text" 
                 placeholder="Add new category"
@@ -28,3 +29,4 @@ export const AddCategory = ({ onNewCategory } ) => {
      </form>
     );
 };
+
